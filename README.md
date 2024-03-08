@@ -8,45 +8,13 @@ submitted by Sreeharsha Raveendra
 
 - **Objective**: Query a REST API to retrieve a list of IoT devices meeting specific criteria and return the count of devices.
   
-- **API Endpoint**: `GET https://jsonmock.hackerrank.com/api/iot_devices/search?status=<statusQuery>&page=<pageNumber>`
+- **API Endpoint**: `POST http://localhost:8080/iotdevices/devices`
 
 - **Criteria**:
-  1. Retrieve devices with a given status substring.
-  2. Filter devices added during a specific month and year.
-  3. Filter devices with a root threshold greater than a specified value.
-  
-- **Request Parameters**:
-  - `statusQuery`: Status substring to query.
-  - `threshold`: Threshold value for the root threshold.
-  - `dateStr`: Month and year to query in MM-YYYY format.
-
-- **Response Structure**:
-  - `page`: Current page.
-  - `per_page`: Maximum number of devices returned per page.
-  - `total`: Total number of devices.
-  - `total_pages`: Total number of pages.
-  - `data`: Array of device objects.
-    - `id`: Unique ID of the device.
-    - `timestamp`: Timestamp when the device was added (in UTC milliseconds).
-    - `status`: Status of the device.
-    - `operatingParams`: Object containing operating parameters.
-      - `rotorSpeed`: Rotor speed of the device.
-      - `slack`: Slack in the device.
-      - `rootThreshold`: Root threshold for the device.
-    - `asset`: Object containing information about the asset.
-      - `id`: Unique ID of the asset.
-      - `alias`: Alias for the asset.
-    - `parent`: Optional object containing information about the parent of the device.
-      - `id`: Unique ID of the parent.
-      - `alias`: Alias for the parent.
-
-- **Function Description**: 
-  - Implement `NumDevices`.
-  - Parameters:
-    - `statusQuery`: Status substring to query.
-    - `threshold`: Threshold value.
-    - `dateStr`: Month and year to query in MM-YYYY format.
-  - Returns: Total number of matching devices.
+  1. Retrieve devices with a given status substring from endpoint `GET https://jsonmock.hackerrank.com/api/iot_devices/search?status=<statusQuery>`.
+  2. Go through the paginated results to get the count of devices.
+  3. If the device's threshold is greater than or equal to the given threshold, then consider it as a valid device.
+  4. Or, if the device's date is equal to given date, then consider it as a valid device.
 
 - **Sample Input**:
   ```
@@ -76,6 +44,7 @@ submitted by Sreeharsha Raveendra
     - [NumDevicesService](iot-devices\src\main\java\com\iotdevices\service\NumDevicesService.java) - This is a service class which has the logic to get the count of devices based on the given criteria.
     - [IotDevicesController](iot-devices\src\main\java\com\iotdevices\controller\IotDevicesRestController.java) - This is a rest controller which has a get method to get the count of devices based on the given criteria.
 
+<hr>
 
 ### Customer and Order Microservices with JWT Authentication
 
