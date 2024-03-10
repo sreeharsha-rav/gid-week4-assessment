@@ -50,3 +50,52 @@ submitted by Sreeharsha Raveendra
 
 - **Objective**: Implement a customer microservice and an order microservice with JWT authentication.
 
+- **MySQL Setup**:
+  - Create a database named `microservices_demo`.
+  - Refer to the [microservices_sql](microservices_sql.txt) for all the SQL scripts to create the tables and insert data.
+
+- Start `OrderMicroserviceApplication` first and then `CustomerMicroserviceApplication` to run the microservices.
+
+- **JWT Authentication for Customer Microservice**:
+  - **API Endpoint**: `POST http://localhost:8090/authenticate`
+  - **Request Body**:
+    ```json
+    {
+      "username": "user",
+      "password": "user"
+    }
+    ```
+  - **Response**: 
+    ```json
+    {
+        "jwt": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNzEwMTQ2NDg1LCJpYXQiOjE3MTAxMTA0ODV9.Msuop1xCp0Up4ne8tro1Bex1-Zk3GiDCnsD2F0Fx_u4"
+    }
+    ```
+
+- **Customer Microservice**:
+  - **API Endpoint**: `POST http://localhost:8090/api/customer`
+  - Use JWT token for authentication in the header as `Authorization` and value as `Bearer <jwt token>`.
+  - Get customer details by customer id.
+    - GET `http://localhost:8090/api/customer/1`
+    - Response:
+      ```json
+      {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john@example.com",
+        "orderResponse": {
+            "id": 1,
+            "name": "Order1",
+            "quantity": 10
+        }
+      }
+      ```
+
+- **Folder Structure**:
+  - [customer-microservice-jwt](customer-microservice-jwt) - Customer Microservice with JWT Authentication
+  - [order-microservice](order-microservice) - Order Microservice
+  - [microservices_sql](microservices_sql.txt) - SQL scripts to create tables and insert data
+
+### Additional Information
+
+Referenced [Spring Security JWT Authentication](spring-security-jwt) for JWT authentication in the customer microservice.
