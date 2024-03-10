@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "05068054-fe54-460d-9012-099833b9f2e3",
+		"name": "week4-assessment-restapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28103794"
+	},
+	"item": [
+		{
+			"name": "Order Microservice",
+			"item": [
+				{
+					"name": "get all orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:9090/api/order/all"
+					},
+					"response": []
+				},
+				{
+					"name": "get order by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:9090/api/order/1"
+					},
+					"response": []
+				},
+				{
+					"name": "create new order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Order Test\",\r\n    \"quantity\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/api/order/add"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer Microservice",
+			"item": [
+				{
+					"name": "get all customers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNzEwMTMyMjI4LCJpYXQiOjE3MTAwOTYyMjh9.BIdjocQblWO08mTVaDEUeI0oqvqJr14H4NGuoDwqJUk",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8090/api/customer/all"
+					},
+					"response": []
+				},
+				{
+					"name": "get customer by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNzEwMTMyMjI4LCJpYXQiOjE3MTAwOTYyMjh9.BIdjocQblWO08mTVaDEUeI0oqvqJr14H4NGuoDwqJUk",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8090/api/customer/1"
+					},
+					"response": []
+				},
+				{
+					"name": "create new customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNzEwMTMyMjI4LCJpYXQiOjE3MTAwOTYyMjh9.BIdjocQblWO08mTVaDEUeI0oqvqJr14H4NGuoDwqJUk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Test2\",\r\n  \"email\": \"john.test@example.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/api/customer/add"
+					},
+					"response": []
+				},
+				{
+					"name": "auth_test",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNzEwMTMyMjI4LCJpYXQiOjE3MTAwOTYyMjh9.BIdjocQblWO08mTVaDEUeI0oqvqJr14H4NGuoDwqJUk",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8090/auth_test"
+					},
+					"response": []
+				},
+				{
+					"name": "get auth jwt",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"user\",\r\n    \"password\": \"user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/authenticate"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8090/api/customer/hello",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNzEwMTMyMjI4LCJpYXQiOjE3MTAwOTYyMjh9.BIdjocQblWO08mTVaDEUeI0oqvqJr14H4NGuoDwqJUk",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8090/api/customer/hello"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "iot-devices",
+			"item": [
+				{
+					"name": "iot-devices @ /iotdevices/devices + request body",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"statusQuery\": \"STOPPED\",\r\n  \"threshold\": 45,\r\n  \"dateStr\": \"04-2019\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/iotdevices/devices"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -95,6 +95,7 @@ submitted by Sreeharsha Raveendra
   - [customer-microservice-jwt](customer-microservice-jwt) - Customer Microservice with JWT Authentication
   - [order-microservice](order-microservice) - Order Microservice
   - [microservices_sql](microservices_sql.txt) - SQL scripts to create tables and insert data
+  - [week4_assessment.postman_collection.json](week4_assessment.postman_collection.json) - Postman collection for testing the APIs
 
 ### Additional Information
 
